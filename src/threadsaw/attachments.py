@@ -86,9 +86,10 @@ def _set_exported_paths(
             continue
         destination = reported_root / Path(relative)
         try:
-            row["exported_path"] = str(destination.resolve().relative_to(case_dir)) if case_dir else str(destination)
+            path = destination.resolve().relative_to(case_dir) if case_dir else destination
         except ValueError:
-            row["exported_path"] = str(destination)
+            path = destination
+        row["exported_path"] = path.as_posix()
 
 
 def _copy_attachment_rows(
@@ -113,7 +114,7 @@ def _copy_attachment_rows(
         preferred = safe_filename(row["original_filename"], f"attachment-{row['part_index']}.bin")
         destination = unique_path(message_dir, preferred, is_directory=False)
         shutil.copyfile(source, destination)
-        row["_copy_relative"] = str(destination.relative_to(copies_root))
+        row["_copy_relative"] = destination.relative_to(copies_root).as_posix()
         copied += 1
     return copied
 
@@ -259,4 +260,3 @@ def export_attachment_run(
     finally:
         cleanup_staging(report_stage)
         cleanup_staging(copy_stage)
-
