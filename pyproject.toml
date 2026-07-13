@@ -14,7 +14,7 @@ dependencies = ["opencv-python-headless==4.13.0.92", "pypdfium2==5.8.0"]
 
 [project.optional-dependencies]
 msg = ["extract-msg==0.55.0"]
-dev = ["pytest==9.0.2", "build==1.3.0"]
+dev = ["pytest==9.1.1", "build==1.3.0"]
 
 [project.scripts]
 threadsaw = "threadsaw.cli:main"
