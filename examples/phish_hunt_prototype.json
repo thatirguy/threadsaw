@@ -1,0 +1,13 @@
+{
+  "config_version": 1,
+  "name": "Prototype default",
+  "preset": "custom",
+  "factors": [
+    {
+      "factor_id": "cross_domain_message",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+services:
+  threadsaw:
+    build: .
+    network_mode: none
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    tmpfs:
+      - /tmp:size=2g
+    # Input and case folders are supplied explicitly by the GUI or CLI with
+    # bind mounts. Keeping them out of this file prevents Docker Compose from
+    # creating surprise ./evidence or ./case directories in the project tree.
+    command: ["doctor"]

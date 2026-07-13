@@ -1,0 +1,538 @@
+{
+  "config_version": 1,
+  "name": "General phishing email hunt",
+  "preset": "general",
+  "factors": [
+    {
+      "factor_id": "reply_to_domain_mismatch",
+      "enabled": true,
+      "weight": 25,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "display_name_embedded_email_domain_mismatch",
+      "enabled": true,
+      "weight": 35,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_domain_lookalike_configured",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "legitimate_domains": ""
+      }
+    },
+    {
+      "factor_id": "sender_domain_lookalike_recipient",
+      "enabled": true,
+      "weight": 30,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "trusted_dmarc_fail",
+      "enabled": true,
+      "weight": 30,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "trusted_dkim_fail",
+      "enabled": true,
+      "weight": 25,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "trusted_spf_fail",
+      "enabled": true,
+      "weight": 15,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "displayed_url_domain_mismatch",
+      "enabled": true,
+      "weight": 30,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_literal_ip",
+      "enabled": true,
+      "weight": 30,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_userinfo_misdirection",
+      "enabled": true,
+      "weight": 40,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_nonstandard_port",
+      "enabled": true,
+      "weight": 15,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_dangerous_scheme",
+      "enabled": true,
+      "weight": 40,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_embeds_legitimate_domain",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "legitimate_domains": ""
+      }
+    },
+    {
+      "factor_id": "url_obfuscated_numeric_ip",
+      "enabled": true,
+      "weight": 40,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_executable_or_script",
+      "enabled": true,
+      "weight": 50,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_double_extension",
+      "enabled": true,
+      "weight": 35,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_unicode_controls",
+      "enabled": true,
+      "weight": 35,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "executable_without_extension",
+      "enabled": true,
+      "weight": 45,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_shortcut",
+      "enabled": true,
+      "weight": 45,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_disk_image",
+      "enabled": true,
+      "weight": 30,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_html_svg",
+      "enabled": true,
+      "weight": 40,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_modern_loader_or_macro",
+      "enabled": true,
+      "weight": 45,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "html_form",
+      "enabled": true,
+      "weight": 35,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "html_auto_redirect",
+      "enabled": true,
+      "weight": 35,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "html_embedded_active_object",
+      "enabled": true,
+      "weight": 40,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "html_script",
+      "enabled": true,
+      "weight": 45,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "html_event_handlers",
+      "enabled": true,
+      "weight": 25,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "return_path_domain_mismatch",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_address_new",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_domain_new",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_ip_new_for_sender",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "reply_to_new_for_sender",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "return_path_new_for_sender",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_free_email_provider",
+      "enabled": true,
+      "weight": 8,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_domain_punycode",
+      "enabled": true,
+      "weight": 15,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_header_mismatch",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "corroborated_thread_reply",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "trust_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "thread_continuation_changed_infrastructure",
+      "enabled": true,
+      "weight": 35,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "prior_sender_recipient",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "trust_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "prior_sender_subject",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "trust_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "reply_subject_without_references",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "unmatched_thread_references",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "trusted_arc_fail",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "authentication_conflict",
+      "enabled": true,
+      "weight": 15,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "date_received_discrepancy",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "threshold_hours": 24
+      }
+    },
+    {
+      "factor_id": "message_id_missing_or_malformed",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "message_id_domain_mismatch",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sharepoint_host_mismatch",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "legitimate_sharepoint_host": ""
+      }
+    },
+    {
+      "factor_id": "external_sharepoint_tenant_new",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "legitimate_sharepoint_host": ""
+      }
+    },
+    {
+      "factor_id": "payment_urgency_keywords",
+      "enabled": true,
+      "weight": 15,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "keywords": "updated bank details\nchange bank details\nwire\nurgent\ngift card\niban\nrouting number\naccount number",
+        "include_financial_patterns": true
+      }
+    },
+    {
+      "factor_id": "exact_url_count",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "expected_count": 0
+      }
+    },
+    {
+      "factor_id": "url_shortener",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_punycode",
+      "enabled": true,
+      "weight": 15,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_domain_new_case",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_domain_new_sender",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_deep_subdomains",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "minimum_depth": 4
+      }
+    },
+    {
+      "factor_id": "url_nested_url",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_plain_http",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_heavy_percent_encoding",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "minimum_sequences": 8
+      }
+    },
+    {
+      "factor_id": "url_base64_like",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "minimum_length": 40
+      }
+    },
+    {
+      "factor_id": "url_contains_recipient_email",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "url_domain_differs_sender",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "exact_attachment_count",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "expected_count": 0
+      }
+    },
+    {
+      "factor_id": "attachment_type_match",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {
+        "match_field": "Filename extension",
+        "match_value": ""
+      }
+    },
+    {
+      "factor_id": "attachment_type_new_sender",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_archive",
+      "enabled": true,
+      "weight": 10,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attachment_encrypted_zip",
+      "enabled": true,
+      "weight": 25,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "attached_email",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_recipient_same_domain",
+      "enabled": false,
+      "weight": 0,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "sender_mimics_recipient_localpart",
+      "enabled": true,
+      "weight": 20,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "no_visible_recipient",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    },
+    {
+      "factor_id": "bcc_only_recipients",
+      "enabled": true,
+      "weight": 5,
+      "effect_mode": "risk_when_yes",
+      "parameters": {}
+    }
+  ],
+  "notes": "Starter heuristic preset supplied with Threadsaw. It is not a calibrated probability model. Review enabled factors, weights, effect directions, and organization-specific parameters before use."
+}
