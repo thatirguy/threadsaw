@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 authors = [{name = "Threadsaw project"}]
-dependencies = ["opencv-python-headless==4.13.0.92", "pypdfium2==5.8.0"]
+dependencies = ["opencv-python-headless==4.13.0.92", "pypdfium2==5.11.0"]
 
 [project.optional-dependencies]
 msg = ["extract-msg==0.55.0"]
