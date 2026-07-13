@@ -89,7 +89,8 @@ def test_repeated_message_and_attachment_exports_never_overwrite(tmp_path):
         assert STAMP_RE.search(first_files_dir.name)
         with Path(first_attachments["report"]).open(encoding="utf-8-sig", newline="") as handle:
             row = next(csv.DictReader(handle))
-        assert str(first_files_dir.relative_to(case)) in row["exported_path"]
+        assert first_files_dir.relative_to(case).as_posix() in row["exported_path"]
+        assert "\\" not in row["exported_path"]
     finally:
         conn.close()
 

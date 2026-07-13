@@ -63,12 +63,14 @@ class SecurityGuardrailTest(unittest.TestCase):
             lambda: socket.getaddrinfo("example.com", 443),
             lambda: urllib.request.urlopen("https://example.com"),
             lambda: webbrowser.open("https://example.com"),
+            lambda: subprocess.Popen(["echo", "not-allowed"]),
             lambda: subprocess.run(["echo", "not-allowed"]),
             lambda: os.system("echo not-allowed"),
         ]
         for call in denied_calls:
             with self.assertRaises(SecurityGuardrailError):
                 call()
+        self.assertIsInstance(subprocess.Popen, type)
         posture = security_posture()
         self.assertEqual(posture["network_access"], "denied")
         self.assertFalse(posture["attachment_launch_or_execution"])

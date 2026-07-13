@@ -37,6 +37,13 @@ def _deny_launch(*_args, **_kwargs):
     )
 
 
+class _DeniedPopen(_ORIGINAL_POPEN):
+    """Subclassable process guard used by Windows stdlib compatibility code."""
+
+    def __init__(self, *_args, **_kwargs):
+        _deny_launch()
+
+
 def install_runtime_guardrails() -> None:
     """Deny network access and general-purpose process/application launching.
 
@@ -64,7 +71,10 @@ def install_runtime_guardrails() -> None:
 
     # Deny general-purpose child processes and OS application launchers. The
     # original Popen object is retained privately for the readpst-only wrapper.
-    subprocess.Popen = _deny_launch  # type: ignore[assignment]
+    # Keep Popen as a class: Windows' asyncio module subclasses it during lazy
+    # import. Replacing it with a function breaks that import before any process
+    # is launched, while this denying subclass preserves both behaviors.
+    subprocess.Popen = _DeniedPopen
     subprocess.run = _deny_launch  # type: ignore[assignment]
     subprocess.call = _deny_launch  # type: ignore[assignment]
     subprocess.check_call = _deny_launch  # type: ignore[assignment]
