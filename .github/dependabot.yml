@@ -1,8 +1,66 @@
 version: 2
+# Security groups are advisory-triggered and bypass the routine schedule and
+# cooldown. Dependabot alerts and security updates must also be enabled in the
+# repository's Settings > Advanced Security page.
 updates:
-  - package-ecosystem: pip
+  - package-ecosystem: "pip"
     directory: "/"
-    schedule: {interval: monthly}
-  - package-ecosystem: github-actions
+    schedule:
+      interval: "monthly"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 3
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
+    groups:
+      pip-security:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+      pip-runtime-routine:
+        applies-to: "version-updates"
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+      pip-development-routine:
+        applies-to: "version-updates"
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+
+  - package-ecosystem: "github-actions"
     directory: "/"
-    schedule: {interval: monthly}
+    schedule:
+      interval: "monthly"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 2
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
+    groups:
+      actions-security:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+      actions-routine:
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
