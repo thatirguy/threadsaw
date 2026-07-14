@@ -2,6 +2,7 @@
 
 ## Start here
 
+- [`USE_CASE_GUIDE.md`](USE_CASE_GUIDE.md) — practical GUI and CLI recipes for message analysis, PST export, artifact review, Phish Hunt scoring and fingerprinting, and string search.
 - [`README.md`](../README.md) — purpose, security boundary, primary workflows, quick start, and major 1.3.0 changes.
 - [`USER_GUIDE.md`](USER_GUIDE.md) — operator workflow from case creation through reporting, scoring, QR review, and exports.
 - [`INSTALLATION_AND_DEPLOYMENT.md`](INSTALLATION_AND_DEPLOYMENT.md) — native, Docker, and desktop-launcher installation and upgrade guidance.
