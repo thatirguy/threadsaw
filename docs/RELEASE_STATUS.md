@@ -32,7 +32,7 @@ Version 1.0.0 was the first official release of the approved 0.6.1 implementatio
 
 ## Packaged-release validation
 
-The release artifact was validated with 68 passing automated tests, clean-wheel installation, CLI smoke tests, bundled Public Suffix List verification, complete preset/evaluator registry checks, and a local ingest/report/Phish Hunt smoke workflow. These checks do not replace representative PST and large-case acceptance testing.
+The release artifact was validated with 75 passing automated tests, clean-wheel installation, CLI smoke tests, bundled Public Suffix List verification, complete preset/evaluator registry checks, and a local ingest/report/Phish Hunt smoke workflow. Hosted CI also passes on Windows, macOS, and Linux under Python 3.11 and 3.13. These checks do not replace representative PST and large-case acceptance testing.
 
 ## Case-boundary requirement
 

@@ -205,10 +205,13 @@ V2 builds on the frozen V1 CLI baseline (`0.1.1`).
 - SQLite-first indexing, PST/EML/optional MSG ingestion, reporting, URL string extraction, attachment carving, scopes, and message export.
 - Permanent offline and static-analysis security guardrails.
 
-## 1.3.0 - 2026-07-13
+## 1.3.0 - 2026-07-14
 
 - Added large-case streaming for core reports and Phish Hunt, including JSON Lines output.
 - Added PST free-space preflight, preserved partial extraction output, and per-EML fault isolation.
 - Added human-readable Evaluate Phishing Email hit report.
 - Added GitHub publication files, platform Getting Started guides, dependency pins, licensing guidance, and CycloneDX SBOM.
 - Default container build excludes optional GPL-licensed MSG support; enable explicitly with `THREADSAW_INSTALL_MSG=1`.
+- Added practical GUI/CLI investigation recipes and corrected cross-platform CI behavior.
+- Tightened Microsoft Safe Links wrapper recognition to exact or dot-delimited host matches.
+- Added automated GitHub Release and multi-architecture GHCR publication with checksums, provenance, and SBOM attestations.

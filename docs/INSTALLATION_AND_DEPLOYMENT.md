@@ -7,11 +7,14 @@ Requirements:
 - Docker Desktop or compatible Docker/Compose runtime;
 - Python 3.11+ with Tkinter on the host.
 
+Pull the published default image, then launch the GUI:
+
 ```powershell
+docker compose pull
 python .\launcher\threadsaw_gui.py
 ```
 
-The image includes `readpst`, OpenCV, pypdfium2, and optional MSG support by default. The container runs without networking.
+The versioned image is published as `ghcr.io/thatirguy/threadsaw:1.3.0` for `linux/amd64` and `linux/arm64`. It includes `readpst`, OpenCV, and pypdfium2, excludes optional MSG support, and runs without networking. Set `THREADSAW_IMAGE` to select a different image reference.
 
 ## Build manually
 
@@ -19,10 +22,10 @@ The image includes `readpst`, OpenCV, pypdfium2, and optional MSG support by def
 docker build -t threadsaw:1.3.0 .
 ```
 
-Disable optional MSG support:
+Enable optional MSG support only after reviewing its GPL licensing obligations:
 
 ```bash
-docker build --build-arg THREADSAW_INSTALL_MSG=0 -t threadsaw:1.3.0-no-msg .
+docker build --build-arg THREADSAW_INSTALL_MSG=1 -t threadsaw:1.3.0-msg .
 ```
 
 ## Native Python installation
@@ -55,7 +58,7 @@ Use a local filesystem with sufficient free space. PST extraction may require sp
 
 1. Stop existing Threadsaw containers.
 2. Extract Version 1.3.0 into a new application directory or install the new wheel.
-3. Rebuild the image.
+3. Run `docker compose pull`, or rebuild the image when using a customized local build.
 4. Open the existing case. Schema migration runs automatically.
 5. Run `threadsaw case-context --case <case>` for PST-derived cases.
 6. Re-run URL indexing when new bare-`www`, wrapper, PSL, or SharePoint behavior is needed.

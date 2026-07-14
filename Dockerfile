@@ -1,8 +1,13 @@
 FROM python:3.13-slim-bookworm
 
+ARG THREADSAW_VERSION=1.3.0
+ARG VCS_REF=""
 LABEL org.opencontainers.image.title="Threadsaw" \
-      org.opencontainers.image.version="1.3.0" \
-      org.opencontainers.image.description="Offline static email triage; no URL/IP following or attachment execution"
+      org.opencontainers.image.version="${THREADSAW_VERSION}" \
+      org.opencontainers.image.description="Offline static email triage; no URL/IP following or attachment execution" \
+      org.opencontainers.image.source="https://github.com/thatirguy/threadsaw" \
+      org.opencontainers.image.revision="${VCS_REF}" \
+      org.opencontainers.image.licenses="MIT"
 
 ENV NO_PROXY="*" no_proxy="*"
 

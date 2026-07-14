@@ -10,7 +10,24 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 authors = [{name = "Threadsaw project"}]
+keywords = ["email", "phishing", "bec", "forensics", "pst", "eml"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+]
 dependencies = ["opencv-python-headless==5.0.0.93", "pypdfium2==5.11.0"]
+
+[project.urls]
+Homepage = "https://github.com/thatirguy/threadsaw"
+Documentation = "https://github.com/thatirguy/threadsaw/tree/main/docs"
+Issues = "https://github.com/thatirguy/threadsaw/issues"
+Source = "https://github.com/thatirguy/threadsaw"
 
 [project.optional-dependencies]
 msg = ["extract-msg==0.55.0"]

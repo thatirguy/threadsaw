@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:4ce729d8-5db7-48d7-9c69-threadsaw130",
+  "serialNumber": "urn:uuid:4ce729d8-5db7-48d7-9c69-130000000001",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-07-13T00:00:00Z",
+    "timestamp": "2026-07-14T00:00:00Z",
     "component": {
       "type": "application",
       "bom-ref": "pkg:pypi/threadsaw@1.3.0",
@@ -21,21 +21,21 @@
   "components": [
     {
       "type": "library",
-      "bom-ref": "pkg:pypi/opencv-python-headless@4.13.0.92",
+      "bom-ref": "pkg:pypi/opencv-python-headless@5.0.0.93",
       "name": "opencv-python-headless",
-      "version": "4.13.0.92",
+      "version": "5.0.0.93",
       "scope": "required",
-      "purl": "pkg:pypi/opencv-python-headless@4.13.0.92",
+      "purl": "pkg:pypi/opencv-python-headless@5.0.0.93",
       "licenses": [{"expression": "MIT AND Apache-2.0 AND LGPL-2.1-or-later"}],
       "properties": [{"name": "threadsaw:notice", "value": "The wrapper is MIT, OpenCV is Apache-2.0, and wheel-bundled third-party components have additional terms including FFmpeg LGPL-2.1."}]
     },
     {
       "type": "library",
-      "bom-ref": "pkg:pypi/pypdfium2@5.8.0",
+      "bom-ref": "pkg:pypi/pypdfium2@5.11.0",
       "name": "pypdfium2",
-      "version": "5.8.0",
+      "version": "5.11.0",
       "scope": "required",
-      "purl": "pkg:pypi/pypdfium2@5.8.0",
+      "purl": "pkg:pypi/pypdfium2@5.11.0",
       "licenses": [{"expression": "Apache-2.0 OR BSD-3-Clause"}],
       "properties": [{"name": "threadsaw:notice", "value": "Includes PDFium and its third-party notices; preserve notices from the installed distribution."}]
     },
@@ -68,7 +68,7 @@
     }
   ],
   "dependencies": [
-    {"ref": "pkg:pypi/threadsaw@1.3.0", "dependsOn": ["pkg:pypi/opencv-python-headless@4.13.0.92", "pkg:pypi/pypdfium2@5.8.0", "pkg:generic/libpst", "threadsaw:public-suffix-list-snapshot"]},
+    {"ref": "pkg:pypi/threadsaw@1.3.0", "dependsOn": ["pkg:pypi/opencv-python-headless@5.0.0.93", "pkg:pypi/pypdfium2@5.11.0", "pkg:generic/libpst", "threadsaw:public-suffix-list-snapshot"]},
     {"ref": "pkg:pypi/extract-msg@0.55.0", "dependsOn": []}
   ]
 }
