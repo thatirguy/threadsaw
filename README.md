@@ -2,7 +2,18 @@
 
 > When you're looking for a needle in a haystack, you need a pitchfork.
 
-Threadsaw is an offline, case-based email triage and phishing-risk analysis tool for PST, EML, and optionally MSG evidence. It never follows URLs, contacts hosts, or executes attachments.
+Threadsaw is an offline, case-based email triage and phishing-risk analysis tool for PST, EML, and optionally MSG evidence. Finding the initial phishing email while hunting for the root cause of a Business Email Compromise (BEC) case can be difficult, so I built Threadsaw to make that work easier. Its robust GUI displays the underlying CLI command for each operation, making workflows easy to understand, repeat, and script. Threadsaw never follows URLs, contacts hosts, or executes attachments. It is best used with Docker; on Windows, the recommended Docker workflow requires WSL 2.
+
+## Investigation how-to guides
+
+**Start here: [Practical investigation workflows](docs/USE_CASE_GUIDE.md)**
+
+- [Analyze an EML or MSG file](docs/USE_CASE_GUIDE.md#use-case-1-analyze-an-eml-or-msg-file)
+- [Break a PST into EML files and summarize its contents](docs/USE_CASE_GUIDE.md#use-case-2-break-a-pst-into-eml-files-and-summarize-the-contents)
+- [Export URLs or attachments from a date range](docs/USE_CASE_GUIDE.md#use-case-3-export-urls-or-attachments-from-a-date-range)
+- [Score all emails in a date range by risk and export artifacts](docs/USE_CASE_GUIDE.md#use-case-4-score-all-emails-in-a-date-range-by-risk-and-export-artifacts)
+- [Fingerprint a known phishing email and hunt for similar messages](docs/USE_CASE_GUIDE.md#use-case-5-fingerprint-a-known-phishing-email-and-hunt-for-similar-messages)
+- [Search for a string across case content](docs/USE_CASE_GUIDE.md#use-case-6-search-for-a-string-across-case-content)
 
 ## Getting started
 
@@ -12,10 +23,6 @@ Threadsaw is an offline, case-based email triage and phishing-risk analysis tool
 - [Large cases](docs/LARGE_CASES.md)
 - [Dependencies and licensing](docs/DEPENDENCIES_AND_LICENSING.md)
 - [Complete documentation index](docs/DOCUMENTATION_INDEX.md)
-
-**When you're looking for a needle in a haystack, you need a pitchfork.**
-
-Threadsaw is an offline, case-based email triage and phishing-analysis toolkit for Business Email Compromise investigations. It ingests PST, EML, and optionally MSG sources; normalizes messages into SQLite; produces reviewable reports and exports; decodes QR codes locally; and applies an explainable 72-factor Phish Hunt scoring model.
 
 Version **1.3.0** is a licensing, context-inference, archive-analysis, and workflow-maintenance release. It remains an analyst-assistance tool rather than a malware sandbox, reputation service, or substitute for evidence-handling procedures.
 
