@@ -133,6 +133,21 @@ def test_url_dedup_bare_www_and_wrapper_decoding(tmp_path: Path):
     assert target == "https://example.net"
 
 
+def test_safelinks_wrapper_host_requires_domain_boundary():
+    encoded_target = "https%3A%2F%2Fexample.com%2Flogin"
+    expected = ("microsoft-safelinks", "https://example.com/login")
+
+    assert _decode_wrapper(
+        f"https://safelinks.protection.outlook.com/?url={encoded_target}"
+    ) == expected
+    assert _decode_wrapper(
+        f"https://nam01.safelinks.protection.outlook.com/?url={encoded_target}"
+    ) == expected
+    assert _decode_wrapper(
+        f"https://not-safelinks.protection.outlook.com/?url={encoded_target}"
+    ) == (None, None)
+
+
 def test_inline_signature_image_is_not_counted_as_attachment(tmp_path: Path):
     message = _base_message(subject="Inline")
     message.add_alternative('<html><body>Hello<img src="cid:logo"></body></html>', subtype="html")

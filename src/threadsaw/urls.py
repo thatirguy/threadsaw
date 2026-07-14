@@ -136,7 +136,10 @@ def _decode_wrapper(url: str) -> tuple[str | None, str | None]:
     parts = urlsplit(url)
     host = (parts.hostname or "").lower()
     query = parse_qs(parts.query)
-    if host.endswith("safelinks.protection.outlook.com") and query.get("url"):
+    if (
+        host == "safelinks.protection.outlook.com"
+        or host.endswith(".safelinks.protection.outlook.com")
+    ) and query.get("url"):
         return "microsoft-safelinks", unquote(query["url"][0])
     if host == "urldefense.proofpoint.com" or host.endswith(".urldefense.proofpoint.com") or host == "urldefense.com" or host.endswith(".urldefense.com"):
         if parts.path.startswith("/v3/"):
