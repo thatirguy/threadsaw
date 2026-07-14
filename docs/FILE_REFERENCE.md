@@ -8,7 +8,7 @@ This inventory describes every file shipped in the source distribution. Runtime 
 |---|---|
 | `.dockerignore` | Excludes caches, local cases, and development clutter from the container build context. |
 | `.gitignore` | Excludes virtual environments, build products, caches, and local evidence/case data. |
-| `README.md` | Current overview, fixed security boundary, workflows, quick start, and documentation entry point. |
+| `README.md` | Current overview, fixed security boundary, workflows, platform setup links, and documentation entry point. |
 | `CHANGELOG.md` | Chronological behavior and release history. |
 | `LICENSE` | MIT license for Threadsaw code. Third-party components retain their own licenses. |
 | `pyproject.toml` | Python package metadata, dependencies, optional MSG support, console entry point, and package-data inclusion. |
@@ -145,4 +145,4 @@ This inventory describes every file shipped in the source distribution. Runtime 
 | `docs/RELEASE_NOTES_*.md` | Historical release notes. |
 | `docs/ROADMAP.md` | Future validation and bounded-feature priorities. |
 | `docs/PROTOTYPE_STATUS.md` | Historical development lineage. |
-| `docs/THREADSAW_1.0.0_MANUAL.md` | Historical 1.0 manual; not authoritative for the current 1.3.0 release. |
+| `docs/THREADSAW_1.0.0_MANUAL.md` | Comprehensive 1.3.0 operator manual; legacy filename retained for stable links. |

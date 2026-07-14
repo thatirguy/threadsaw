@@ -26,16 +26,16 @@ MSG support is optional because it adds a GPL-3.0-or-later parser to the runtime
 docker compose build --build-arg THREADSAW_INSTALL_MSG=1
 ```
 
-Launch the GUI from Bash, macOS, or WSL:
+Launch the GUI from Bash or macOS:
 
 ```bash
-./threadsaw-gui
+python3 launcher/threadsaw_gui.py
 ```
 
 Or from PowerShell:
 
 ```powershell
-.\threadsaw-gui.ps1
+python .\launcher\threadsaw_gui.py
 ```
 
 The CLI examples below show the `threadsaw` portion of each command. They can be run in a native installation, or placed after this Docker wrapper:
