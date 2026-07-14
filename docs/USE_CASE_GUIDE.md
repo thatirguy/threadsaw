@@ -8,13 +8,19 @@ Threadsaw performs static, offline analysis. It does not follow URLs, contact ho
 
 Docker is the recommended way to run Threadsaw. On Windows, install WSL 2 and Docker Desktop first; see the [Windows setup guide](getting-started/WINDOWS.md). Setup instructions are also available for [macOS](getting-started/MACOS.md) and [Linux](getting-started/LINUX.md).
 
-Build the default image, which supports PST and EML evidence:
+Pull the published default image, which supports PST and EML evidence:
+
+```bash
+docker compose pull
+```
+
+You can instead build the default image locally for auditing or customization:
 
 ```bash
 docker compose build
 ```
 
-MSG support is optional because it adds a GPL-3.0-or-later parser to the runtime image. Enable it when required:
+MSG support is optional because it adds a GPL-3.0-or-later parser to the runtime image. Enable it in a local build when required:
 
 ```bash
 docker compose build --build-arg THREADSAW_INSTALL_MSG=1

@@ -119,22 +119,31 @@ pip install -e '.[msg]'
 From the project directory:
 
 ```powershell
+docker compose pull
 python .\launcher\threadsaw_gui.py
 ```
 
-The launcher builds and executes the network-disabled containerized CLI. Evidence is mounted read-only and the case directory writable.
+The launcher executes the network-disabled containerized CLI. Evidence is mounted read-only and the case directory writable. The default Compose service uses the versioned GHCR image; set `THREADSAW_IMAGE` or run `docker compose build` to use a locally built image instead.
 
 ## Docker
 
 ```bash
-docker build -t threadsaw:1.3.0 .
+docker pull ghcr.io/thatirguy/threadsaw:1.3.0
 
 docker run --rm --network none \
   --read-only --cap-drop ALL --security-opt no-new-privileges \
   --tmpfs /tmp:size=2g \
   --mount type=bind,src="$(pwd)/evidence",dst=/input,readonly \
   --mount type=bind,src="$(pwd)/case",dst=/case \
-  threadsaw:1.3.0 run --input /input --case /case --organization-domain client.example
+  ghcr.io/thatirguy/threadsaw:1.3.0 \
+  run --input /input --case /case --organization-domain client.example
+```
+
+The published image supports `linux/amd64` and `linux/arm64` and excludes optional GPL-licensed MSG support. To audit or customize the build, or to enable MSG parsing, build locally:
+
+```bash
+docker build -t threadsaw:1.3.0 .
+docker build --build-arg THREADSAW_INSTALL_MSG=1 -t threadsaw:1.3.0-msg .
 ```
 
 ## Tests

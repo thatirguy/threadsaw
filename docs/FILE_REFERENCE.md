@@ -15,6 +15,16 @@ This inventory describes every file shipped in the source distribution. Runtime 
 | `Dockerfile` | Builds the non-root runtime with `readpst`, QR/PDF dependencies, and hardened defaults. |
 | `compose.yaml` | Network-disabled, read-only-root Compose service used by the launcher. |
 | `Makefile` | Convenience commands for installation, tests, Docker build, and diagnostics. |
+| `CITATION.cff` | Citation metadata for the current release. |
+| `SBOM.cdx.json` | CycloneDX source/wheel dependency inventory; the published image carries its own complete SBOM attestation. |
+
+## GitHub automation
+
+| File | Function |
+|---|---|
+| `.github/workflows/ci.yml` | Tests Python 3.11 and 3.13 on Windows, macOS, and Linux and performs a container smoke build. |
+| `.github/workflows/release.yml` | On a version tag, validates release metadata, builds and attests Python artifacts, publishes the multi-architecture GHCR image, and creates the GitHub Release. |
+| `.github/dependabot.yml` | Prioritizes security updates and groups periodic routine Python and GitHub Actions updates. |
 
 ## Desktop launcher and examples
 
