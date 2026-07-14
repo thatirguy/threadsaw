@@ -93,58 +93,7 @@ Threadsaw never prompts for trusted Authentication-Results or Received host iden
 
 ## Documentation
 
-Start with [`docs/DOCUMENTATION_INDEX.md`](docs/DOCUMENTATION_INDEX.md). Version 1.3.0 documentation includes release notes, module/CLI references, database and output descriptions, security guidance, and all 72 evaluators. The Version 1.0 Word manual remains a historical baseline and does not cover 1.1 or 1.2 additions.
-
-## Quick start
-
-```bash
-python -m venv .venv
-. .venv/bin/activate            # Linux/macOS
-# .venv\Scripts\Activate.ps1    # Windows PowerShell
-pip install -e .
-
-threadsaw ingest --input ./evidence --case ./case --organization-domain client.example
-threadsaw phish-hunt-preset --name general --output ./case/general.json
-threadsaw phish-hunt --case ./case --start 2026-07-01T00:00:00Z --end 2026-07-08T00:00:00Z --config ./case/general.json
-```
-
-PST ingestion requires `readpst`. Standalone MSG support uses the optional dependency:
-
-```bash
-pip install -e '.[msg]'
-```
-
-## Desktop launcher
-
-From the project directory:
-
-```powershell
-docker compose pull
-python .\launcher\threadsaw_gui.py
-```
-
-The launcher executes the network-disabled containerized CLI. Evidence is mounted read-only and the case directory writable. The default Compose service uses the versioned GHCR image; set `THREADSAW_IMAGE` or run `docker compose build` to use a locally built image instead.
-
-## Docker
-
-```bash
-docker pull ghcr.io/thatirguy/threadsaw:1.3.0
-
-docker run --rm --network none \
-  --read-only --cap-drop ALL --security-opt no-new-privileges \
-  --tmpfs /tmp:size=2g \
-  --mount type=bind,src="$(pwd)/evidence",dst=/input,readonly \
-  --mount type=bind,src="$(pwd)/case",dst=/case \
-  ghcr.io/thatirguy/threadsaw:1.3.0 \
-  run --input /input --case /case --organization-domain client.example
-```
-
-The published image supports `linux/amd64` and `linux/arm64` and excludes optional GPL-licensed MSG support. To audit or customize the build, or to enable MSG parsing, build locally:
-
-```bash
-docker build -t threadsaw:1.3.0 .
-docker build --build-arg THREADSAW_INSTALL_MSG=1 -t threadsaw:1.3.0-msg .
-```
+Start with the current [`Threadsaw 1.3.0 manual`](docs/THREADSAW_1.0.0_MANUAL.md) or the [`complete documentation index`](docs/DOCUMENTATION_INDEX.md). Version 1.3.0 documentation includes release notes, module/CLI references, database and output descriptions, security guidance, and all 72 evaluators.
 
 ## Tests
 

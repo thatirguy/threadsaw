@@ -13,4 +13,4 @@ Threadsaw is no longer labeled a prototype. Version 1.0.0 established the first 
 - **1.0.0:** approved baseline promoted to the first official release with comprehensive documentation.
 - **1.1.0:** attached-message attribution repair, URL deduplication and auto-indexing, PST-derived trust inference, indexed history queries, QR and ZIP modules, additional factors, score coverage, and security hardening.
 
-Historical release notes remain in `docs/RELEASE_NOTES_*.md`. The Version 1.0 manual is retained as a historical snapshot and is not authoritative for the current 1.3.0 release.
+Historical release notes remain in `docs/RELEASE_NOTES_*.md`. `docs/THREADSAW_1.0.0_MANUAL.md` now documents the current 1.3.0 release while retaining its legacy filename for stable links.
