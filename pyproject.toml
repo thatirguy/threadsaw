@@ -21,7 +21,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Topic :: Security",
 ]
-dependencies = ["opencv-python-headless==5.0.0.93", "pypdfium2==5.11.0"]
+dependencies = ["opencv-python-headless==5.0.0.93", "pypdfium2==5.13.0"]
 
 [project.urls]
 Homepage = "https://github.com/thatirguy/threadsaw"
