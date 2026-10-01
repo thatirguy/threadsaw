@@ -31,7 +31,7 @@ Source = "https://github.com/thatirguy/threadsaw"
 
 [project.optional-dependencies]
 msg = ["extract-msg==0.55.0"]
-dev = ["pytest==9.1.1", "build==1.5.1"]
+dev = ["pytest==9.1.1", "build==1.6.1"]
 
 [project.scripts]
 threadsaw = "threadsaw.cli:main"
